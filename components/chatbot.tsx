@@ -38,20 +38,16 @@ export default function ChatBot() {
 
   return (
     <>
-      {open ? null : (
-        <button
-          className="fixed bottom-4 right-4 p-4 bg-blue-100 rounded-lg border shadow-xl"
-          onClick={() => setOpen(true)}
-        >
-          <span className="flex items-center space-x-2">
-            <ChatBubbleLeftRightIcon className="w-8 h-8 text-gray-500" />
-            <span className="font-bold text-lg text-gray-800">
-              Open Chatbot
-            </span>
-          </span>
-          <span className="text-gray-500 text-xs">Powered by OpenAI</span>
-        </button>
-      )}
+      <button
+        className="fixed bottom-4 right-4 p-4 bg-blue-100 rounded-lg border shadow-xl"
+        onClick={() => setOpen(true)}
+      >
+        <span className="flex items-center space-x-2">
+          <ChatBubbleLeftRightIcon className="w-8 h-8 text-gray-500" />
+          <span className="font-bold text-lg text-gray-800">Open Chatbot</span>
+        </span>
+        <span className="text-gray-500 text-xs">Powered by OpenAI</span>
+      </button>
 
       <SlideOver
         open={open}
