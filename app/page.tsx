@@ -1,3 +1,5 @@
+import ChatBot from "@/components/chatbot"
+
 export default function Home() {
   return (
     <>
@@ -1419,6 +1421,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <ChatBot />
     </>
   )
 }
