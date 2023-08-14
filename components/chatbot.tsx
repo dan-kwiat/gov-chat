@@ -1,7 +1,8 @@
 "use client"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import SlideOver from "./slide-over"
 import { Message, useChat } from "ai/react"
+import { ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline"
 
 function Messages({ items }: { items: Array<Message> }) {
   return (
@@ -33,18 +34,31 @@ export default function ChatBot() {
     api: "/api/chat",
   })
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
   return (
     <>
       {open ? null : (
         <button
-          className="fixed bottom-4 right-4 p-4 bg-white rounded-lg border shadow-xl"
+          className="fixed bottom-4 right-4 p-4 bg-blue-100 rounded-lg border shadow-xl"
           onClick={() => setOpen(true)}
         >
-          Open chatbot
+          <span className="flex items-center space-x-2">
+            <ChatBubbleLeftRightIcon className="w-8 h-8 text-gray-500" />
+            <span className="font-bold text-lg text-gray-800">
+              Open Chatbot
+            </span>
+          </span>
+          <span className="text-gray-500 text-xs">Powered by OpenAI</span>
         </button>
       )}
 
-      <SlideOver open={open} setOpen={setOpen} title="ChatBot">
+      <SlideOver
+        open={open}
+        setOpen={setOpen}
+        title="ChatBot"
+        initialFocus={inputRef}
+      >
         <div className="">
           <div className="px-4 sm:px-6 pt-4 pb-24">
             <Messages items={messages} />
@@ -59,6 +73,7 @@ export default function ChatBot() {
               Ask a question
             </label>
             <input
+              ref={inputRef}
               id="chatbot-input"
               tabIndex={0}
               placeholder="Ask a question..."

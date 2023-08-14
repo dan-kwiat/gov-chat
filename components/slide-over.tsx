@@ -7,15 +7,22 @@ export default function SlideOver({
   setOpen,
   title,
   children,
+  initialFocus,
 }: {
   open: boolean
   setOpen: (open: boolean) => void
   title: string
   children: React.ReactNode
+  initialFocus?: React.MutableRefObject<HTMLElement | null>
 }) {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog
+        as="div"
+        className="relative z-10"
+        onClose={setOpen}
+        initialFocus={initialFocus}
+      >
         <div className="fixed inset-0" />
 
         <div className="fixed inset-0 overflow-hidden">
