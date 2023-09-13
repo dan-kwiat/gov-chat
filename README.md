@@ -1,15 +1,11 @@
-# GOV.UK Design System Example in NextJS
+# Gov Chat
 
-Useful links:
-
-- https://design-system.service.gov.uk/styles/page-template/
-- https://design-system.service.gov.uk/components/
-- https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/
-- https://prototype-kit.service.gov.uk/docs/
+Prototype of a gov.uk page with a built-in chatbot.
 
 ## Installing
 
 ```bash
+cp .env .env.local # then fill in the missing values in .env.local
 pnpm install
 ```
 
@@ -18,3 +14,13 @@ pnpm install
 ```
 pnpm run dev
 ```
+
+## Building
+
+```
+pnpm run build
+```
+
+## Deploying
+
+https://nextjs.org/docs/app/building-your-application/deploying
